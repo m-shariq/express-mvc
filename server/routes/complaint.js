@@ -18,4 +18,12 @@ router.get(
   complaintController.getCitizenComplaint
 );
 
+router.get("/getTechnician", isAuth, complaintController.getTechnican);
+
+router.put(
+  "/delegateTechnician",
+  isAuth,
+  complaintController.delegateTechnican
+);
+
 module.exports = router;
