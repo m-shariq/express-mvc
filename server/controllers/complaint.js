@@ -21,7 +21,7 @@ exports.getCitizenComplaint = (req, res, next) => {
     .then(([citizen]) => {
       complaints = citizen[0];
 
-      res.status(200).json([complaints]);
+      res.status(200).json(complaints);
     })
     .catch((err) => next(err));
 };
