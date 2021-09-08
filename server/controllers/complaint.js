@@ -26,6 +26,30 @@ exports.getCitizenComplaint = (req, res, next) => {
     .catch((err) => next(err));
 };
 
+exports.getResolvedWorkerComplaint = (req, res, next) => {
+  let complaints;
+  complaintModel
+    .getResolvedWorkerComplaint()
+    .then(([worker]) => {
+      complaints = worker[0];
+
+      res.status(200).json([complaints]);
+    })
+    .catch((err) => next(err));
+};
+
+exports.getResolvedCitizenComplaint = (req, res, next) => {
+  let complaints;
+  complaintModel
+    .getResolvedCitizenComplaint()
+    .then(([citizen]) => {
+      complaints = citizen[0];
+
+      res.status(200).json([complaints]);
+    })
+    .catch((err) => next(err));
+};
+
 exports.getTechnican = (req, res, next) => {
   complaintModel
     .getTechnician()

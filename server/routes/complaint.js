@@ -6,16 +6,18 @@ const isAuth = require("../middleware/is-auth");
 
 const complaintController = require("../controllers/complaint");
 
+router.get("/getWorkerComplaint", complaintController.getWorkerComplaint);
+
+router.get("/getCitizenComplaint", complaintController.getCitizenComplaint);
+
 router.get(
-  "/getWorkerComplaint",
-  isAuth,
-  complaintController.getWorkerComplaint
+  "/getResolvedWorkerComplaint",
+  complaintController.getResolvedWorkerComplaint
 );
 
 router.get(
-  "/getCitizenComplaint",
-  isAuth,
-  complaintController.getCitizenComplaint
+  "/getResolvedCitizenComplaint",
+  complaintController.getResolvedCitizenComplaint
 );
 
 router.get("/getTechnician", isAuth, complaintController.getTechnican);
